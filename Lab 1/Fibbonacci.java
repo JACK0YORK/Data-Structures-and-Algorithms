@@ -25,6 +25,10 @@ public class Fibbonacci {
         }
     }
 
+    /**
+     * Returns the nth term in the Fibbonacci Sequence ( 0, 1, 1, 2, ... ).
+     * @param n
+     */
     public static int iterative_fibbonacci(int n) {
         if (n < 1 || n > 48)
             throw new IllegalArgumentException(
@@ -49,8 +53,8 @@ public class Fibbonacci {
      */
     public static void main(String[] args) {
 
-        final int time_scale = 10000000;
-        final int repetitions = 20;
+        final int repetitions = 20; // Modify as needed
+        final int scale = 10000000/20*repetitions; // I find this is reasonable for testing
 
         System.out.println("| Recursive\t| Iterative\t|");
         System.out.println("+---------------+---------------+");
@@ -60,12 +64,12 @@ public class Fibbonacci {
         for (int i = 1; i < repetitions; i++) {
             long time1 = System.currentTimeMillis();
             int recursive_fibbonacci = recursive_fibbonacci(i);
-            for (int j = 0; j < time_scale; j++) {
+            for (int j = 0; j < scale; j++) {
                 recursive_fibbonacci = recursive_fibbonacci(i);
             }
             long time2 = System.currentTimeMillis();
             int iterative_fibbonacci = iterative_fibbonacci(i);
-            for (int j = 0; j < time_scale; j++) {
+            for (int j = 0; j < scale; j++) {
                 iterative_fibbonacci = iterative_fibbonacci(i);
             }
             long time3 = System.currentTimeMillis();

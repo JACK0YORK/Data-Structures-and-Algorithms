@@ -15,6 +15,11 @@ public class LeapYear {
         return false;
     }
 
+    /**
+     * Helper function that prompts the user with the specified message until an integer is received. 
+     * 
+     * @return received integer
+     */
     public static int prompt_int(Scanner s, String message) {
         System.out.println(message);
         while (!s.hasNextInt()) {
