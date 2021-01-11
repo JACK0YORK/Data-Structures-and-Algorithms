@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+/**
+ * LeapYear
+ */
+public class LeapYear {
+
+    public static boolean is_leap_year(int year) {
+        if (year % 400 == 0)
+            return true;
+        if (year % 100 == 0)
+            return false;
+        if (year % 4 == 0)
+            return true;
+        return false;
+    }
+
+    public static int prompt_int(Scanner s, String message) {
+        System.out.println(message);
+        while (!s.hasNextInt()) {
+            s.next();
+            System.out.println(message);
+            s.hasNext();
+        }
+
+        int output = s.nextInt();
+        return output;
+    }
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int year = prompt_int(s, "Enter a year to test");
+        System.out.println(is_leap_year(year));
+        s.close();
+    }
+}
