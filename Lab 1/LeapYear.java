@@ -1,7 +1,11 @@
 import java.util.Scanner;
 
 /**
- * LeapYear
+ * Showcase of modulus, conditionals, and function calls through a simple
+ * function to determine whether a given year is a leap year.
+ * 
+ * @author Jack York
+ * @since 1/11/2021
  */
 public class LeapYear {
 
@@ -16,7 +20,8 @@ public class LeapYear {
     }
 
     /**
-     * Helper function that prompts the user with the specified message until an integer is received. 
+     * Helper function that prompts the user with the specified message until an
+     * integer is received.
      * 
      * @return received integer
      */

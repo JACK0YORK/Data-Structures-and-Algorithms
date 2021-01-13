@@ -1,3 +1,11 @@
+
+/**
+ * Showcase of the efficiency (and inefficiency) of recursive and iterative
+ * implementations of fibbonacci generators.
+ * 
+ * @author Jackson York
+ * @since 1/11/2021
+ */
 public class Fibbonacci {
 
     /**
@@ -27,6 +35,7 @@ public class Fibbonacci {
 
     /**
      * Returns the nth term in the Fibbonacci Sequence ( 0, 1, 1, 2, ... ).
+     * 
      * @param n
      */
     public static int iterative_fibbonacci(int n) {
@@ -54,7 +63,7 @@ public class Fibbonacci {
     public static void main(String[] args) {
 
         final int repetitions = 20; // Modify as needed
-        final int scale = 10000000/20*repetitions; // I find this is reasonable for testing
+        final int scale = 10000000 / 20 * repetitions; // I find this is reasonable for testing
 
         System.out.println("| Recursive\t| Iterative\t|");
         System.out.println("+---------------+---------------+");
