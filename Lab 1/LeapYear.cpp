@@ -14,8 +14,8 @@ bool is_leap_year(int year)
 int main()
 {
     std::cout << "Enter a year to test" << std::endl;
-    int year=12;
-    // std::cin >> year;
-    std::cout << is_leap_year(year) << std::endl;
+    int year=0;
+    std::cin >> year;
+    std::cout << std::boolalpha << is_leap_year(year) << std::endl;
     return 0;
 }

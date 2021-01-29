@@ -16,21 +16,11 @@ public class Fibbonacci {
      * @param n
      */
     public static int recursive_fibbonacci(int n) {
-        if (n < 1 || n > 48)
-            throw new IllegalArgumentException(
-                    "This Fibbonacci generator only works for integers in the range [1, 48]\n ie. " + n
-                            + " is out of bounds. ");
-        return recursive_fibbonacci_r(n, 0, 1);
-    }
-
-    private static int recursive_fibbonacci_r(int n, int current, int previous) {
-        if (n <= 1)
-            return current;
-        else {
-            current = current + previous;
-            previous = current - previous;
-            return recursive_fibbonacci_r(n - 1, current, previous);
-        }
+        if (n <= 0)
+            return 0;
+        if (n == 1)
+            return 1;
+        return recursive_fibbonacci(n - 1) + recursive_fibbonacci(n - 2);
     }
 
     /**
@@ -39,13 +29,9 @@ public class Fibbonacci {
      * @param n
      */
     public static int iterative_fibbonacci(int n) {
-        if (n < 1 || n > 48)
-            throw new IllegalArgumentException(
-                    "This Fibbonacci generator only works for integers in the range [1, 48]\n ie. " + n
-                            + " is out of bounds. ");
         int current = 0;
         int previous = 1;
-        while (n > 1) {
+        while (n > 0) {
             current = current + previous;
             previous = current - previous;
             n--;
@@ -62,8 +48,8 @@ public class Fibbonacci {
      */
     public static void main(String[] args) {
 
-        final int repetitions = 20; // Modify as needed
-        final int scale = 10000000 / 20 * repetitions; // I find this is reasonable for testing
+        final int repetitions = 10; // Modify as needed
+        final int scale = 10000000 / 10 * repetitions; // I find this is reasonable for testing
 
         System.out.println("| Recursive\t| Iterative\t|");
         System.out.println("+---------------+---------------+");
@@ -82,8 +68,10 @@ public class Fibbonacci {
                 iterative_fibbonacci = iterative_fibbonacci(i);
             }
             long time3 = System.currentTimeMillis();
-            System.out.println("| " + recursive_fibbonacci + "\t| " + (time2 - time1) + "ms\t| " + iterative_fibbonacci
-                    + "\t| " + (time3 - time2) + "ms\t|");
+            System.out.println(String.format("| %d\t| %.2fs\t| %d\t| %.2fs\t|", recursive_fibbonacci,
+                    (float) (time2 - time1) / 1000, iterative_fibbonacci, (float) (time3 - time2) / 1000));
+            // System.out.println("| " + recursive_fibbonacci + "\t| " + (float) (time2 - time1) / 1000 + "s\t| "
+            //         + iterative_fibbonacci + "\t| " + (float) (time3 - time2) / 1000 + "s\t|");
         }
     }
 }
