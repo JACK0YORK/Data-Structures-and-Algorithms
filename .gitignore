@@ -33,4 +33,4 @@
 *.app
 
 temp*
-.vscode
+.*
