@@ -1,4 +1,4 @@
-package Lab_1.j;
+package For_Fun.lab1;
 public class BinarySearch {
 
     public static int binary_search_r(int[] list, int value) {

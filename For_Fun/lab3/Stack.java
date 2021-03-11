@@ -1,4 +1,4 @@
-package Lab_4.j;
+package For_Fun.lab3;
 
 /**
  * Stack
@@ -17,19 +17,27 @@ public class Stack<T> {
         this(DEFAULT_SIZE);
     }
 
-    private void check_size(int desired_max_index) {
+    @SafeVarargs
+    public Stack(T... arr) {
+        this(arr.length > DEFAULT_SIZE / 2 ? (arr.length * 2) : DEFAULT_SIZE);
+        for (T t : arr) {
+            push(t);
+        }
+    }
+
+    private void check_index(int desired_max_index) {
         if (desired_max_index < 0 || desired_max_index >= array.length)
             throw new IndexOutOfBoundsException("Length: " + array.length + ", Index: " + desired_max_index);
     }
 
     public void push(T value) {
-        check_size(length);
+        check_index(length);
         array[length++] = value;
     }
 
     @SuppressWarnings("unchecked")
     public T pop() {
-        check_size(--length);
+        check_index(--length);
         T temp = (T) array[length];
         array[length] = null;
         return temp;
@@ -50,12 +58,12 @@ public class Stack<T> {
 
     public String toString() {
         if (is_empty())
-            return "[ ]";
-        String out = "[ " + array[0].toString();
-        for (int i = 1; i < length; i++) {
+            return "Stack<>()";
+        String out = "Stack<>( " + array[length - 1].toString();
+        for (int i = length - 2; i >= 0; i--) {
             out += ", " + array[i].toString();
         }
-        return out + " ]";
+        return out + " )";
     }
 
 }

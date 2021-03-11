@@ -1,4 +1,4 @@
-package Lab_1.j;
+package For_Fun.lab1;
 public class BinaryTree {
     public BinaryTree left, right;
     public String name;
