@@ -33,6 +33,8 @@
 *.app
 
 temp*
+Temp*
 .*
 For_Fun/
 test.*
+Test.*
